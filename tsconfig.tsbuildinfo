@@ -1,0 +1,1 @@
+{"root":["./playwright.configchrome.ts","./legacycomponents/mainpageobjectmodels.ts","./legacycomponents/data.ts","./legacycomponents/qmeup/navigation/login.ts","./test/example.spec.ts","./test/test-legacy/regressionopd.spec.ts","./test-legacy/regressionopd.spec.ts","./tests-examples/demo-todo-app.spec.ts"],"errors":true,"version":"5.9.2"}
