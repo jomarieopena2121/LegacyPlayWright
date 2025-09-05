@@ -33,6 +33,8 @@ export class allmoduleFunction {
         settings: Locator
         settingsSN: Locator;
         kioskName: Locator
+        kioskName2: Locator
+       // kioskName3: Locator
         kioskbutton: Locator
         kioskdiv: Locator
 
@@ -42,8 +44,10 @@ export class allmoduleFunction {
         this.dashboardiv = page.locator('div', { hasText: "Patient for Today" } ).first().filter();
         this.settings = page.getByRole('link', { name: "Settings" });
         this.settingsSN = page.getByRole('link', { name: "Kiosk" });
-        this.kioskName = page.locator('table', { hasText: "Name"});
+        this.kioskName = page.locator("tbody");
+        this.kioskName2 = page.locator("td");
+       // this.kioskName3 = page.locator("th");
         this.kioskdiv = page.locator('div', { hasText: "KIOSKS" } ).first().filter();
-        this.kioskbutton = page.getByRole('button', { name: "Open Kiosk On New Window" }).filter();
+        this.kioskbutton = page.locator('button[title="Open Kiosk On New Window"]').filter();
     }
 }
