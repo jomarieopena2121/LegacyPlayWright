@@ -1,8 +1,7 @@
 import { test, Page, expect } from '@playwright/test';
 import { PageManager } from '../../PageObjectModels/MainPageObjectModels';
 import { AccountLogin } from '../../LegacyComponents/utils/datavariables';
-import { TIMEOUT } from 'dns';
-
+import { BasedURL, LoginAccount } from '../../PageObjectModels/QMEUP/QmeupLogin';
 
 test('Login Get Kiosk using Admin Account', async ({page}: {page: Page})=>{
     const pageManager = new PageManager(page);
@@ -10,7 +9,10 @@ test('Login Get Kiosk using Admin Account', async ({page}: {page: Page})=>{
     const basedURL = pageManager.qmeupLogin();
     const signIn = pageManager.qmeupLogin2();
     const allmodule = pageManager.qmeupFunction();
- 
+    const kioscontext = await page.context();
+    const kioskPage = await kioscontext.newPage();
+
+
     await basedURL.signinPage;
     await basedURL.button.click();
     await signIn.email1.fill(AccountLogin.qmeupadmin);
@@ -22,44 +24,38 @@ test('Login Get Kiosk using Admin Account', async ({page}: {page: Page})=>{
     await allmodule.dashboardlk.click();
     await allmodule.dashboardiv.textContent();
     await allmodule.settings.click();
-    await page.waitForTimeout(3000);
     await allmodule.settingsSN.click();
     await allmodule.kioskdiv.first().waitFor();
-    await allmodule.kioskName.waitFor();
-    const rows = allmodule.kioskName2; 
-    const kioskname = 'OPD Registration';
-    for (let i = 0; i < await rows.count(); i++){    
-        const rowId = await rows.nth(i).textContent();
-            if(rowId === kioskname.trim()){
-                const click = await rows.nth(i).filter();
-                 await expect(click).toBeVisible();
-                 const clickable = click.locator('div > div > button' );
-                 await clickable.isVisible();
-                 await clickable.click();
-                 page.waitForTimeout(50000);
-                
-                // const rows2 = rows.nth(i).getByRole('button', { name: 'Open Kiosk On New Window' });
-                // page.waitForTimeout(10000);
-                // await rows2.filter().first();
-                // await rows2.isVisible();
-                // await rows2.click();
-                // await expect(rows2.clic);
-                // console.log(`${rows2}`);
-                // await rows2;  
-                // await rows2.click();
-        //    for (let j = 0; j <= i; j++){
-        //     const rows2 = page.locator('button[title="Open Kiosk on New Window"]');
-        //      const rowId2 = await rows2.nth(j).textContent();
-        //         if(rowId2 === kioskname){
-        //             const click = await rows2.nth(j).filter();
-        //             await expect(click).toBeVisible();
-        //             await click.click();
-        //         }
-        //     }
-            break;
-        }
+    const tbody = await allmodule.kioskName;
+    await tbody.waitFor();
+    const rows = allmodule.kioskName2;
+    const row2 = allmodule.kioskName3;
+    const kioskbutton:any = allmodule.kioskbutton
+    const kioskname = 'APPOINTMENT';
+    //Getting all data on Body
+    for (let h = 0; h < await tbody.count(); h++){
+        const tbody2 = await tbody.nth(h);
+        await expect(tbody2).toBeVisible();
+        break;
     }
-   
+
+    for (let i = 0; i < await rows.count(); i++){
+        const rowId = await rows.nth(i);
+        for(let j = i; j < await row2.count(); j++){
+            const rowId2 = await row2.nth(j).textContent();
+             if(rowId2 === 'APPOINTMENT' && kioskbutton === 'APPOINTMENT'){
+                await kioskbutton.nth(j).click();
+                
+                break;
+        }
+        console.log(rowId2);
+        }
+       console.log(rowId);
+   }
+
+});
+test ('', async ({page}: {page: Page}) => {
+
 
 
 });

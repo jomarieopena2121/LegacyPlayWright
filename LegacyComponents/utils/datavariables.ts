@@ -8,5 +8,6 @@ export const AccountLogin : AppConfigs = {
     qmeupadmin: config.qmeupadmin,
     qmeuppass: config.qmeuppass,
     docaccount: config.docaccount,
-    docpassword: config.docpassword
+    docpassword: config.docpassword,
+    kioskurl: config.kioskurl
 }

@@ -10,6 +10,7 @@ export function getConfig(): AppConfigs {
         qmeupadmin: process.env.QMEUPADMIN || '',
         qmeuppass: process.env.QMEUPPASS || '',
         docaccount: process.env.QMEUPDOCTOR || '',
-        docpassword: process.env.QMEUPDOCPASS || ''
+        docpassword: process.env.QMEUPDOCPASS || '',
+        kioskurl: process.env.QMEUPKIOSKURL || '',
     };
 }

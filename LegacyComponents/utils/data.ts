@@ -5,4 +5,5 @@ export type AppConfigs = {
     qmeuppass: string;
     docaccount: string;
     docpassword: string;
+    kioskurl: string;
 }
