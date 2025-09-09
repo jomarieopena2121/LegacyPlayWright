@@ -1,5 +1,5 @@
-import { getConfig } from "./config";
-import { AppConfigs } from "./data";
+import { getConfig, getConfig2 } from "./config";
+import { AppConfigs, AppConfigs2 } from "./data";
 
 const config = getConfig();
 export const AccountLogin : AppConfigs = {
@@ -9,5 +9,9 @@ export const AccountLogin : AppConfigs = {
     qmeuppass: config.qmeuppass,
     docaccount: config.docaccount,
     docpassword: config.docpassword,
-    kioskurl: config.kioskurl
+    qmeupkioskname: config.qmeupkioskname
+}
+const config2 = getConfig2();
+export const getKiosKURL: AppConfigs2 = {
+    kioskurl: config2.kioskurl
 }

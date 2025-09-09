@@ -5,5 +5,11 @@ export type AppConfigs = {
     qmeuppass: string;
     docaccount: string;
     docpassword: string;
-    kioskurl: string;
+    qmeupkioskname: string
+}
+export type AppConfigs2 = {
+     kioskurl: string;
+}
+export type textNaming = {
+    title: string
 }

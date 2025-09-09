@@ -1,7 +1,8 @@
 import { test, Page, expect } from '@playwright/test';
 import { PageManager } from '../../PageObjectModels/MainPageObjectModels';
-import { AccountLogin } from '../../LegacyComponents/utils/datavariables';
-import { BasedURL, LoginAccount } from '../../PageObjectModels/QMEUP/QmeupLogin';
+import { AccountLogin, getKiosKURL } from '../../utils/datavariables';
+import { pageLogins } from '../../QMSFunction/qmeupLogin';
+import { getQR } from '../../QMSFunction/qmeupGetQRKiosk';
 
 test('Login Get Kiosk using Admin Account', async ({page}: {page: Page})=>{
     const pageManager = new PageManager(page);
@@ -9,12 +10,11 @@ test('Login Get Kiosk using Admin Account', async ({page}: {page: Page})=>{
     const basedURL = pageManager.qmeupLogin();
     const signIn = pageManager.qmeupLogin2();
     const allmodule = pageManager.qmeupFunction();
-    const kioscontext = await page.context();
-    const kioskPage = await kioscontext.newPage();
 
-
-    await basedURL.signinPage;
-    await basedURL.button.click();
+    test.step('Login Prompt', async ()=>{
+        await pageLogins(page);
+    });
+//    await basedURL.button.click();
     await signIn.email1.fill(AccountLogin.qmeupadmin);
     console.log(AccountLogin.qmeupadmin)
     await signIn.pass.fill(AccountLogin.qmeuppass);
@@ -27,35 +27,40 @@ test('Login Get Kiosk using Admin Account', async ({page}: {page: Page})=>{
     await allmodule.settingsSN.click();
     await allmodule.kioskdiv.first().waitFor();
     const tbody = await allmodule.kioskName;
-    await tbody.waitFor();
-    const rows = allmodule.kioskName2;
-    const row2 = allmodule.kioskName3;
-    const kioskbutton:any = allmodule.kioskbutton
-    const kioskname = 'APPOINTMENT';
-    //Getting all data on Body
-    for (let h = 0; h < await tbody.count(); h++){
-        const tbody2 = await tbody.nth(h);
-        await expect(tbody2).toBeVisible();
-        break;
-    }
+    const rows = tbody;  
+    const rowCount = await rows.count();
+    const kioskbutton0 = allmodule.kioskbutton
+    const kioskName2 = allmodule.kioskName2
 
-    for (let i = 0; i < await rows.count(); i++){
-        const rowId = await rows.nth(i);
-        for(let j = i; j < await row2.count(); j++){
-            const rowId2 = await row2.nth(j).textContent();
-             if(rowId2 === 'APPOINTMENT' && kioskbutton === 'APPOINTMENT'){
-                await kioskbutton.nth(j).click();
-                
-                break;
-        }
-        console.log(rowId2);
-        }
-       console.log(rowId);
-   }
-
+    for (let i = 0; i < rowCount; i++) {
+        const row = rows.nth(i);
+        // all <td> in this row
+        const tdCells = row.locator(kioskName2);
+        // get the first cell text
+        const firstCellText = await tdCells.first().innerText();
+        // check if it matches "OPD Registration"
+        if (firstCellText.includes(AccountLogin.qmeupkioskname)) {
+        // last cell of the row
+        const lastCell = tdCells.last();
+        const kioskbutton1 = lastCell;
+        // button inside last cell 'button[title="Open Kiosk On New Window"]'
+        const kioskButton = kioskbutton1.locator(kioskbutton0);
+        // check visibility
+        await expect(kioskButton).toBeVisible();
+  //  console.log(`Found button in row ${i} with Name of Kiosk = ${firstCellText}`);
+  }
+}
 });
-test ('', async ({page}: {page: Page}) => {
 
+test('Gettings Kiosk QR Number', async ({page}: {page: Page}) => {
+    const pageManager = new PageManager(page);
+    const qmsKiosk = pageManager.qmeupKiosk();
+    test.step('Kiosk Link', async () => {
+    const qrGet = await getQR(page);
+    await expect(qrGet.title).toBeVisible();
+    })
 
-
-});
+    await qmsKiosk.page.waitForLoadState('load');
+    await qmsKiosk.kbgeneralsurgery.click();
+})
+   

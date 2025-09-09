@@ -1,6 +1,6 @@
 import * as dotenv from 'dotenv'
 import * as path from 'path'
-import { AppConfigs } from './data';
+import { AppConfigs, AppConfigs2 } from './data';
 dotenv.config();
 
 export function getConfig(): AppConfigs {
@@ -11,6 +11,13 @@ export function getConfig(): AppConfigs {
         qmeuppass: process.env.QMEUPPASS || '',
         docaccount: process.env.QMEUPDOCTOR || '',
         docpassword: process.env.QMEUPDOCPASS || '',
-        kioskurl: process.env.QMEUPKIOSKURL || '',
+       qmeupkioskname: process.env.QMEUPKIOSKNAME || ''
     };
+}
+
+export function getConfig2(): AppConfigs2{
+    return{
+        kioskurl: process.env.QMEUPKIOSKURL || ''
+
+    }
 }
