@@ -2,7 +2,7 @@ import { Page } from '@playwright/test'
 import { BasedURL } from '../QMSClass/QmeupLogin';
 import { KioskQR } from '../QMSClass/QmeupKiosk';
 import { LoginAccount } from '../QMSClass/QmeupSignin';
-import { settingsClass } from '../QMSClass/QmeupSettings';
+import { settingsClass } from '../QMSClass/QmeupKioskCreation';
 
 export class PageManager {
     public page: Page;
@@ -17,9 +17,9 @@ export class PageManager {
         this.qmskiosk = new KioskQR(this.page);
         this.settings = new settingsClass(page);
     }
-    qmeupLogin(){
-        return this.BasedURL;
-    }
+    // qmeupLogin(){
+    //     return this.BasedURL;
+    // }
     qmeupLogin2(){
         return this.landingPage;
     }
