@@ -16,6 +16,16 @@ export class myAccounts {
     getsubscribetomailinglist: Locator
     get2fa: Locator
     enabledarkmode: Locator
+    acposition: Locator
+    acemail: Locator
+    acusername: Locator
+    acnicnkname: Locator
+    acmobile: Locator
+    acofficephone: Locator
+    acextension: Locator
+    acFaxNo: Locator
+
+
     constructor(page: any){
         this.page = page;
         this.basicinformation = page.getByRole('heading', { hasText: 'BASIC INFORMATION'});
@@ -32,5 +42,37 @@ export class myAccounts {
         this.getsubscribetomailinglist = page.getByLabel('Subscribe To Mailing List');
         this.get2fa = page.getByLabel('Two-Factor Authentication');
         this.enabledarkmode = page.getByLabel('Enable Dark Mode (BETA)');
+        this.acposition = page.getByLabel('Position');
+        this.acemail = page.getByLabel('Email');
+        this.acusername = page.getByLabel('Username');
+        this.acnicnkname = page.getByLabel('Nickname');
+        this.acmobile = page.getByLabel('Mobile No.');
+        this.acofficephone = page.getByLabel('Office Phone');
+        this.acextension = page.getByLabel('Extension');
+        this.acFaxNo = page.getByLabel('Fax No.');
+    }
+}
+
+export class doctorInformation {
+    page: Page
+
+    constructor(page:any){
+        this.page = page;
+    }
+}
+
+export class doctorSetting {
+    page: Page
+    
+    constructor(page:any){
+        this.page = page;
+    }
+}
+
+export class paymentDetails {
+    page: Page
+
+    constructor(page:any){
+        this.page = page
     }
 }
