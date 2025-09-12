@@ -44,7 +44,6 @@ test.describe('CRUD Kiosk', async ()=>{
         await pageLogins(page);
         await userAccountAdmin(page);
         await updateKiosk(page);
-        
     });
     test('Cancel Removing of Kiosk', async ({page})=> {
 

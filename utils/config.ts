@@ -11,7 +11,8 @@ export function getConfig(): AppConfigs {
         qmeuppass: process.env.QMEUPPASS || '',
         docaccount: process.env.QMEUPDOCTOR || '',
         docpassword: process.env.QMEUPDOCPASS || '',
-       qmeupkioskname: process.env.QMEUPKIOSKNAME || ''
+        qmeupkioskname: process.env.QMEUPKIOSKNAME || '',
+        qmeupCloud: process.env.QMEUPCLOUD || ''
     };
 }
 

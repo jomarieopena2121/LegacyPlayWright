@@ -9,7 +9,8 @@ export const AccountLogin : AppConfigs = {
     qmeuppass: config.qmeuppass,
     docaccount: config.docaccount,
     docpassword: config.docpassword,
-    qmeupkioskname: config.qmeupkioskname
+    qmeupkioskname: config.qmeupkioskname,
+    qmeupCloud: config.qmeupCloud
 }
 const config2 = getConfig2();
 export const getKiosKURL: AppConfigs2 = {

@@ -6,10 +6,35 @@ export type AppConfigs = {
     docaccount: string;
     docpassword: string;
     qmeupkioskname: string
+    qmeupCloud: string
 }
 export type AppConfigs2 = {
-     kioskurl: string;
+    kioskurl: string;
 }
-export type textNaming = {
-    title: string
+
+export type personalInfooMale = {
+    prefix: string;
+    suffix: string;
+    lastName: string;
+    firstname: string;
+    middlename: string;
+    position: string;
+    username: string;
+    nickname: string;
+    mobileNo: string;
+    officePhone: string;
+    faxNo: string;
+}
+
+export type personalInfooFemale = {
+    prefix: string;
+    lastName: string;
+    firstname: string;
+    middlename: string;
+    position: string;
+    username: string;
+    nickname: string;
+    mobileNo: string;
+    officePhone: string;
+    faxNo: string;
 }

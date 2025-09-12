@@ -1,0 +1,31 @@
+{
+    "maleInformations": {
+        "prefix": "Mr",
+        "suffix": "Jr",
+        "lastName": "BALBOL",
+        "middlename": "Kurdapia",
+        "firstName": "MARLOU",
+        "position": "Clinic Admin",
+        "userName": "NA",
+        "nickName": "Lou",
+        "mobileNo": "091313223123",
+        "officePhone": "",
+        "Extension": "",
+        "faxNo": ""
+    },
+
+    "femaleInformations": {
+        "prefix": "Ms",
+        "lastName": "BALBOL",
+        "middlename": "Kurdapia",
+        "firstName": "MARLOU",
+        "position": "Clinic Admin",
+        "userName": "NA",
+        "nickName": "Lou",
+        "mobileNo": "091313223123",
+        "officePhone": "",
+        "Extension": "",
+        "faxNo": ""
+    }
+}
+
