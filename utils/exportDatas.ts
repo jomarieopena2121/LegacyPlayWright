@@ -16,14 +16,14 @@ export const personalInfoMale: personalInfooMale  = {
 }
 
 export const personalInfoFemale: personalInfooFemale  = {
-    prefix: dataset.maleInformations.prefix,
-    lastName: dataset.maleInformations.lastName,
-    middlename: dataset.maleInformations.middlename,
-    firstname: dataset.maleInformations.firstName,
-    position: dataset.maleInformations.position,
-    username: dataset.maleInformations.userName,
-    nickname: dataset.maleInformations.nickName,
-    mobileNo: dataset.maleInformations.mobileNo,
-    officePhone: dataset.maleInformations.officePhone,
-    faxNo: dataset.maleInformations.faxNo
+    prefix: dataset.femaleInformations.prefix,
+    lastName: dataset.femaleInformations.lastName,
+    middlename: dataset.femaleInformations.middlename,
+    firstname: dataset.femaleInformations.firstName,
+    position: dataset.femaleInformations.position,
+    username: dataset.femaleInformations.userName,
+    nickname: dataset.femaleInformations.nickName,
+    mobileNo: dataset.femaleInformations.mobileNo,
+    officePhone: dataset.femaleInformations.officePhone,
+    faxNo: dataset.femaleInformations.faxNo
 }
