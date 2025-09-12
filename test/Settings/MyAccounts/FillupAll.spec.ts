@@ -1,6 +1,6 @@
 import { test } from "@playwright/test";
 import { fillupAllInfoMale, uploadProfilePhoto, genderMale } from "../../../QMSFunction/QmeupMyAccount";
-import { landingPage, pageLogins, userAccountAdmin } from "../../../QMSFunction/QmeupLogin";
+import { landingPage, pageLogins, userAccountAdmin } from "../../../QMSFunction/qmeupLogin";
 import { PageManager } from "../../../PageObjectModels/MainPageObjectModels";
 import { personalInfoMale } from "../../../utils/exportDatas";
 
