@@ -26,6 +26,20 @@
         "officePhone": "",
         "Extension": "",
         "faxNo": ""
+    },
+    "datePicks": {
+        "birthDays": "08/21/1951",
+        "licenseExpire": "11/21/2029"
+    },
+    "changePassword": {
+        "oldPass": "abcdE1234",
+        "newPass": "abcdE@12345",
+        "confirmPass": "abcdE@12345"
+    },
+    "birthDays": {
+        "Month": "August",
+        "Day": 31,
+        "Year": 2000
     }
 }
 

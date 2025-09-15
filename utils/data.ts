@@ -38,3 +38,12 @@ export type personalInfooFemale = {
     officePhone: string;
     faxNo: string;
 }
+export type changePass = {
+    oldPass: string,
+    newPass: string,
+    confirmPass: string
+}
+export type datePickers = {
+    birthDays: string,
+    licenseExpire: string
+}

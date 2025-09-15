@@ -210,7 +210,7 @@ export async function openNewKioskWindow(page: Page): Promise<PageManager> {
             // check visibility
             await expect(kioskButton).toBeVisible();
             await kioskButton.click();
-      //  console.log(`Found button in row ${i} with Name of Kiosk = ${firstCellText}`);
+            //console.log(`Found button in row ${i} with Name of Kiosk = ${firstCellText}`);
             }
         }
 

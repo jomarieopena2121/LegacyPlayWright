@@ -1,7 +1,7 @@
 import { test, Page, expect } from '@playwright/test';
 import { PageManager } from '../../PageObjectModels/MainPageObjectModels';
-import { landingPage, pageLogins, userAccountAdmin } from '../../QMSFunction/qmeupLogin';
-import { clickQRCode, getQR  } from '../../QMSFunction/qmeupGetQRKiosk';
+import { landingPage, pageLogins, userAccountAdmin } from '../../QMSFunction/QmeupLogin';
+import { clickQRCode, getQR  } from '../../QMSFunction/QmeupGetQRKiosk';
 import { addKioskAllGroup, 
     openNewKioskWindow, 
     updateKiosk, 

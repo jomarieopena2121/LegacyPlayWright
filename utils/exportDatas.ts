@@ -1,5 +1,9 @@
 
-import { personalInfooMale, personalInfooFemale } from "./data";
+import { personalInfooMale, 
+    personalInfooFemale, 
+    datePickers, 
+    changePass,
+    birthDays2 } from "./data";
 const dataset = JSON.parse(JSON.stringify(require("../utils/testData.json")));
 export const personalInfoMale: personalInfooMale  = {
     prefix: dataset.maleInformations.prefix,
@@ -26,4 +30,18 @@ export const personalInfoFemale: personalInfooFemale  = {
     mobileNo: dataset.femaleInformations.mobileNo,
     officePhone: dataset.femaleInformations.officePhone,
     faxNo: dataset.femaleInformations.faxNo
+}
+export const changePassword: changePass ={
+    oldPass: dataset.changePassword.oldPass,
+    newPass: dataset.changePassword.newPass,
+    confirmPass: dataset.changePassword.confirmPass
+}
+export const datePickerss: datePickers = {
+    birthDays: dataset.datePicks.birthDays,
+    licenseExpire: dataset.datePicks.licenseExpire
+}
+export const birthDayss2: birthDays2 = {
+    month: dataset.birthDays.Month,
+    day: dataset.birthDays.Day,
+    year: dataset.birthDays.Year
 }

@@ -1,11 +1,12 @@
 import { test } from "@playwright/test";
-import { fillupAllInfoMale, uploadProfilePhoto, genderMale } from "../../../QMSFunction/QmeupMyAccount";
-import { landingPage, pageLogins, userAccountAdmin } from "../../../QMSFunction/qmeupLogin";
+import { fillupAllInfoMale, uploadProfilePhoto, genderMale, Birthday, btCalendarbDay } from "../../../QMSFunction/QmeupMyAccount";
+import { landingPage, pageLogins, userAccountAdmin } from "../../../QMSFunction/QmeupLogin";
 import { PageManager } from "../../../PageObjectModels/MainPageObjectModels";
-import { personalInfoMale } from "../../../utils/exportDatas";
+import { datePickerss, personalInfoMale } from "../../../utils/exportDatas";
+import { birthDayss2 } from "../../../utils/exportDatas";
 
 test('Fill up all', async ({page})=> {
-    const pageManager = new PageManager(page);
+    const pageManager = new PageManager(page,);
     const allmodule = pageManager.qmeupFunction();
     
     await landingPage(page);
@@ -17,4 +18,6 @@ test('Fill up all', async ({page})=> {
     await uploadProfilePhoto(page);
     await fillupAllInfoMale(page, personalInfoMale);
     await genderMale(page);
+    //await Birthday(page, datePickerss);
+    await btCalendarbDay(page, birthDayss2);
 })
