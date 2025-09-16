@@ -9,7 +9,7 @@ export function getConfig(): AppConfigs {
         baseappurl2: process.env.BASE_APP_URL2 || '',
         qmeupadmin: process.env.QMEUPADMIN || '',
         qmeuppass: process.env.QMEUPPASS || '',
-        docaccount: process.env.QMEUPDOCTOR || '',
+        docaccount: process.env.QMEUPDOC || '',
         docpassword: process.env.QMEUPDOCPASS || '',
         qmeupkioskname: process.env.QMEUPKIOSKNAME || '',
         qmeupCloud: process.env.QMEUPCLOUD || ''

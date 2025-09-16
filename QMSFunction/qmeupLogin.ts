@@ -2,6 +2,7 @@ import { Page, expect } from '@playwright/test'
 import { AccountLogin, getKiosKURL } from '../utils/datavariables';
 import { BasedURL } from '../QMSClass/QmeupLogin';
 import { PageManager } from '../PageObjectModels/MainPageObjectModels';
+import { AppConfigs } from '../utils/data';
 
 export async function landingPage(page: Page) {
      await page.goto(AccountLogin.baseappurl);
@@ -28,16 +29,16 @@ export async function userAccountAdmin(page:Page): Promise<PageManager> {
     return pageManager;
 }
 
-export async function doctorsAccount(page: Page): Promise<PageManager>{
+export async function doctorsAccount(page: Page, {docaccount, docpassword}: AppConfigs): Promise<PageManager>{
     const pageManager = new PageManager(page);
 
     const signIn = pageManager.qmeupLogin2();
-    await signIn.email1.fill(AccountLogin.docaccount);
-    console.log(AccountLogin.docpassword)
-    await signIn.pass.fill(AccountLogin.docpassword);
-    console.log(AccountLogin.docpassword)
+    await signIn.email1.fill(docaccount);
+    console.log(docaccount)
+    await signIn.pass.fill(docpassword);
+    console.log(docpassword)
     await signIn.button1.click();
-    await signIn.page.waitForLoadState('load');
+   // await signIn.page.waitForTimeout(30000);
 
     return pageManager;
 }

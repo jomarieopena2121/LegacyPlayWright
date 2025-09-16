@@ -47,3 +47,9 @@ export type datePickers = {
     birthDays: string,
     licenseExpire: string
 }
+export type birthDays2 = {
+    month: string,
+    day: string,
+    year: string
+
+}

@@ -41,7 +41,7 @@ export const datePickerss: datePickers = {
     licenseExpire: dataset.datePicks.licenseExpire
 }
 export const birthDayss2: birthDays2 = {
-    month: dataset.birthDays.Month,
-    day: dataset.birthDays.Day,
-    year: dataset.birthDays.Year
+    month: dataset.birthDays.month,
+    day: dataset.birthDays.day,
+    year: dataset.birthDays.year
 }

@@ -59,7 +59,7 @@ export async function fillupAllInfoFemaleWife(page:Page,{ prefix, middlename }: 
 export async function genderMale(page:Page): Promise<PageManager>{
     const pageManager = new PageManager(page);
     
-    const qmeupMyAccounts = pageManager.qmeupmyAccountMaleGender()
+    const qmeupMyAccounts = pageManager.qmeupmyAccountMaleGender();
     await expect(qmeupMyAccounts.getgender).toBeVisible();
     await qmeupMyAccounts.getgender2.click({force: true});
     await expect(qmeupMyAccounts.gdMenuM).toBeVisible();
@@ -92,48 +92,29 @@ export async function Birthday(page: Page, { birthDays }: datePickers){
 
     return pageManager
 }
-export async function btCalendarbDay(page: Page, { year }: birthDays2){
+export async function CalendarDay(page: Page, { year }: birthDays2){
     const pageManager = new PageManager(page);
     const qmeupMyAccounts = pageManager.qmeupmyAccountBirthday();
-
-    await expect(qmeupMyAccounts.bdayInput).toBeVisible();
     await expect(qmeupMyAccounts.bdayButtonCalendar).toBeVisible();
     await qmeupMyAccounts.bdayButtonCalendar.click();
     await qmeupMyAccounts.bdaybtyear.click();
-    const yearcount = await qmeupMyAccounts.countdivyear;
-    const divyear = yearcount;
-    const divyearcount = await divyear.count()
-    const yearbutton = await qmeupMyAccounts.btcountyear;
-    const grid = yearbutton;
-       for(let i = 0; i < divyearcount; i++){
-        const scroll = divyear.nth(i);
-        const birthcount = await scroll.locator(grid);
-        const birthyearcount = await birthcount.last().innerText();
-        if(birthyearcount.includes(year)){
-            const currentyear = birthcount.first();
-            const btncuryear = currentyear;
-            const btncuryear2 = btncuryear.locator(grid);
-            await expect(btncuryear2).toBeVisible();
-        }
-        console.log(`${birthyearcount}`);
-    }
-    // const btnyearcount = await qmeupMyAccounts.btcountyear;
-    // const btncountyear = btnyearcount;
-    // const btnyear1 = await btncountyear.count()
+    await expect(qmeupMyAccounts.scrollviewyear).toBeVisible();
+    await expect(qmeupMyAccounts.countdivyear).toBeVisible();
 
-    // for (let i = 0; i < btnyear1; i++){
-    //     const countyears = btncountyear.nth(i);
-    //     const countcellyears = countyears.locator(btnyearcount);
-    //     const dateyearpicker = await countcellyears.last().innerText();
-    //     if(dateyearpicker === year){
-    //         const currentCell = countcellyears.first();
-    //         const clickyear = currentCell;
-    //         const yearclickcurrent = clickyear.locator(btnyearcount);
-    //         await yearclickcurrent.scrollIntoViewIfNeeded();
-    //         await expect(yearclickcurrent).toBeVisible();
-            
-    //     }
-    //     break;
-    // }
-    return pageManager
+    const yearButtons = qmeupMyAccounts.btcountyear;
+    const count = await yearButtons.count();
+
+    for (let i = 0; i < count; i++) {
+        const button = yearButtons.nth(i);
+        const yearText = await button.innerText();
+        if (yearText.includes(year)) {
+            await expect(button).toBeVisible();
+            await button.scrollIntoViewIfNeeded();
+            await button.click();
+            await expect(qmeupMyAccounts.dateview).toBeVisible();
+            console.log(`Clicked year: ${yearText}`);
+            break; // stop after finding and clicking the right year
+        }
+    }
+    return pageManager;
 }

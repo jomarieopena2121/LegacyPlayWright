@@ -5,6 +5,7 @@ export class settingsClass {
         page: Page
         dashboardlk: Locator
         dashboardiv: Locator
+        dbnorole: Locator
         settings: Locator
         settingsSN: Locator;
         kioskName: Locator
@@ -30,6 +31,7 @@ export class settingsClass {
         this.page = page;
         this.dashboardlk = page.getByRole('link', { name: "Dashboard" });
         this.dashboardiv = page.locator('div', { hasText: "Patient for Today" } ).first().filter();
+        this.dbnorole = page.getByRole('paragraph', { name: "Sorry, you don't have access to this facility dashboard."});
         this.settings = page.getByRole('link', { name: "Settings" });
         this.settingsSN = page.getByRole('link', { name: "Kiosk" });
         this.kioskName = page.locator('tbody tr');

@@ -11,7 +11,6 @@ export class myAccounts {
     getlastname: Locator
     getfirstname: Locator
     getmiddlename: Locator
-    
     getBdayType: Locator
     getBdayClick: Locator
     getsubscribetomailinglist: Locator
@@ -66,7 +65,7 @@ export class maleGender {
         this.page = page
         this.getgender = page.getByText('Gender');
         //Inspect -> Right click the element -> Click Copy Element -> Find Full XPATH
-        //If the attributes has no any attributes full xpath is used.
+        //If the Element has no any attributes full xpath is used.
         this.getgender2 = page.locator('//html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div/div/div[1]/div[2]/div[2]/div[5]/div[1]/div/div[1]');
         this.gdMenuM = page.locator('//html/body/div[11]/div/div/div/div[1]/span');
         this.displayGender = page.locator('//html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div/div/div[1]/div[2]/div[2]/div[5]/div[1]/div/div[1]/div[1]/div[2]');
@@ -74,7 +73,7 @@ export class maleGender {
 }
 
 export class femaleGender {
-     page:Page
+    page:Page
     getgender: Locator
     getgender2: Locator
     gdMenuF: Locator
@@ -84,7 +83,7 @@ export class femaleGender {
         this.page = page
         this.getgender = page.getByText('Gender');
         //Inspect -> Right click the element -> Click Copy Element -> Find Full XPATH
-        //If the attributes has no any attributes full xpath is used.
+        //If the Element has no any attributes full xpath is used.
         this.getgender2 = page.locator('//html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div/div/div[1]/div[2]/div[2]/div[5]/div[1]/div/div[1]');
         this.gdMenuF = page.locator('//html/body/div[11]/div/div/div/div[2]/span');
         this.displayGender = page.locator('//html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div/div/div[1]/div[2]/div[2]/div[5]/div[1]/div/div[1]/div[1]/div[2]');
@@ -98,16 +97,20 @@ export class birthdDay{
     bdaybtyear: Locator
     btcountyear: Locator
     countdivyear: Locator
+    scrollviewyear: Locator
+    dateview: Locator
     constructor (page:any){
         this.page = page
         this.bdayInput = page.getByLabel('Birthday (MM/DD/YYYY)');
         //Inspect -> Right click the element -> Click Copy Element -> Find Full XPATH
-        //If the attributes has no any attributes full xpath is used.
+        //If the Element has no any attributes full xpath is used.
         this.bdayButtonCalendar = page.locator('//html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div/div/div[1]/div[2]/div[2]/div[6]/div[2]/button');
         this.bdaybtcalback = page .locator('//html/body/div[5]/div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/button[1]');
         this.bdaybtyear = page.locator('//html/body/div[5]/div/div[1]/div/div/div/div/div[1]/div[1]/div/div');
         this.btcountyear = page.locator('button:has(span)');
         this.countdivyear = page.locator('//html/body/div[5]/div/div[1]/div/div/div/div/div[2]/div[1]/div/div');
+        this.scrollviewyear = page.locator('//html/body/div[5]/div/div[1]/div/div/div/div/div[2]/div[1]');
+        this.dateview = page.locator('//html/body/div[5]/div/div[1]/div/div/div/div/div[2]/div[1]');
     }
 }
 export class csCoHabit {
@@ -120,7 +123,7 @@ export class csCoHabit {
         this.page = page
         this.getCivilStatus = page.getByLabel('Civil Status');
         //Inspect -> Right click the element -> Click Copy Element -> Find Full XPATH
-        //If the attributes has no any attributes full xpath is used.
+        //If the Element has no any attributes full xpath is used.
         this.getCSbutton = page.locator('//html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div/div/div[1]/div[2]/div[2]/div[5]/div[2]/div/div[1]');
         this.getStatusSingle = page.locator('//html/body/div[11]/div/div/div/div[1]/span')
         this.displayStatus = page.locator('//html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div/div/div[1]/div[2]/div[2]/div[5]/div[2]/div/div[1]/div[1]/div[2]');
@@ -137,7 +140,7 @@ export class csSingle {
         this.page = page
         this.getCivilStatus = page.getByLabel('Civil Status');
         //Inspect -> Right click the element -> Click Copy Element -> Find Full XPATH
-        //If the attributes has no any attributes full xpath is used.
+        //If the Element has no any attributes full xpath is used.
         this.getCSbutton = page.locator('//html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div/div/div[1]/div[2]/div[2]/div[5]/div[2]/div/div[1]');
         this.getStatusSingle = page.locator('//html/body/div[11]/div/div/div/div[2]/span')
         this.displayStatus = page.locator('//html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div/div/div[1]/div[2]/div[2]/div[5]/div[2]/div/div[1]/div[1]/div[2]');
@@ -153,7 +156,7 @@ export class csMarried {
         this.page = page
         this.getCivilStatus = page.getByLabel('Civil Status');
         //Inspect -> Right click the element -> Click Copy Element -> Find Full XPATH
-        //Elements has no any attributes full xpath is used.
+        //If Elements has no any attributes full xpath is used.
         this.getCSbutton = page.locator('//html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div/div/div[1]/div[2]/div[2]/div[5]/div[2]/div/div[1]');
         this.getcsMarried = page.locator('//html/body/div[11]/div/div/div/div[3]/span')
         this.displayStatus = page.locator('//html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div/div/div[1]/div[2]/div[2]/div[5]/div[2]/div/div[1]/div[1]/div[2]');
@@ -169,7 +172,7 @@ export class csWidowed {
         this.page = page
         this.getCivilStatus = page.getByLabel('Civil Status');
         //Inspect -> Right click the element -> Click Copy Element -> Find Full XPATH
-        //If the attributes has no any attributes full xpath is used.
+        //If the Element has no any attributes full xpath is used.
         this.getCSbutton = page.locator('//html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div/div/div[1]/div[2]/div[2]/div[5]/div[2]/div/div[1]');
         this.getscsWidowed = page.locator('//html/body/div[11]/div/div/div/div[4]/span')
         this.displayStatus = page.locator('//html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div/div/div[1]/div[2]/div[2]/div[5]/div[2]/div/div[1]/div[1]/div[2]');
@@ -185,7 +188,7 @@ export class csDefacto {
         this.page = page
         this.getCivilStatus = page.getByLabel('Civil Status');
         //Inspect -> Right click the element -> Click Copy Element -> Find Full XPATH
-        //If the attributes has no any attributes full xpath is used.
+        //If the Element has no any attributes full xpath is used.
         this.getCSbutton = page.locator('//html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div/div/div[1]/div[2]/div[2]/div[5]/div[2]/div/div[1]');
         this.getcsDefacto = page.locator('//html/body/div[11]/div/div/div/div[5]/span')
         this.displayStatus = page.locator('//html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div/div/div[1]/div[2]/div[2]/div[5]/div[2]/div/div[1]/div[1]/div[2]');
@@ -202,7 +205,7 @@ export class csTraditional {
         this.page = page
         this.getCivilStatus = page.getByLabel('Civil Status');
         //Inspect -> Right click the element -> Click Copy Element -> Find Full XPATH
-        //If the attributes has no any attributes full xpath is used.
+        //If the Element has no any attributes full xpath is used.
         this.getCSbutton = page.locator('//html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div/div/div[1]/div[2]/div[2]/div[5]/div[2]/div/div[1]');
         this.getcsTraditional = page.locator('/html/body/div[11]/div/div/div/div[6]/span')
         this.displayStatus = page.locator('//html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div/div/div[1]/div[2]/div[2]/div[5]/div[2]/div/div[1]/div[1]/div[2]');
@@ -218,7 +221,7 @@ export class csChild {
         this.page = page
         this.getCivilStatus = page.getByLabel('Civil Status');
         //Inspect -> Right click the element -> Click Copy Element -> Find Full XPATH
-        //If the attributes has no any attributes full xpath is used.
+        //If the Element has no any attributes full xpath is used.
         this.getCSbutton = page.locator('//html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div/div/div[1]/div[2]/div[2]/div[5]/div[2]/div/div[1]');
         this.getcsChild = page.locator('//html/body/div[11]/div/div/div/div[7]/span')
         this.displayStatus = page.locator('//html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div/div/div[1]/div[2]/div[2]/div[5]/div[2]/div/div[1]/div[1]/div[2]');
@@ -234,7 +237,7 @@ export class csNewborn {
         this.page = page
         this.getCivilStatus = page.getByLabel('Civil Status');
         //Inspect -> Right click the element -> Click Copy Element -> Find Full XPATH
-        //If the attributes has no any attributes full xpath is used.
+        //If the Element has no any attributes full xpath is used.
         this.getCSbutton = page.locator('//html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div/div/div[1]/div[2]/div[2]/div[5]/div[2]/div/div[1]');
         this.getcsNewborn = page.locator('//html/body/div[11]/div/div/div/div[8]/span')
         this.displayStatus = page.locator('//html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div/div/div[1]/div[2]/div[2]/div[5]/div[2]/div/div[1]/div[1]/div[2]');
@@ -250,7 +253,7 @@ export class csSeparation {
         this.page = page
         this.getCivilStatus = page.getByLabel('Civil Status');
         //Inspect -> Right click the element -> Click Copy Element -> Find Full XPATH
-        //If the attributes has no any attributes full xpath is used.
+        //If the Element has no any attributes full xpath is used.
         this.getCSbutton = page.locator('//html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div/div/div[1]/div[2]/div[2]/div[5]/div[2]/div/div[1]');
         this.getcsSeparation = page.locator('//html/body/div[11]/div/div/div/div[9]/span')
         this.displayStatus = page.locator('//html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div/div/div[1]/div[2]/div[2]/div[5]/div[2]/div/div[1]/div[1]/div[2]');
@@ -266,7 +269,7 @@ export class csAnnulled {
         this.page = page
         this.getCivilStatus = page.getByLabel('Civil Status');
         //Inspect -> Right click the element -> Click Copy Element -> Find Full XPATH
-        //If the attributes has no any attributes full xpath is used.
+        //If the Element has no any attributes full xpath is used.
         this.getCSbutton = page.locator('//html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div/div/div[1]/div[2]/div[2]/div[5]/div[2]/div/div[1]');
         this.getcsAnnulled = page.locator('//html/body/div[11]/div/div/div/div[10]/span')
         this.displayStatus = page.locator('//html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div/div/div[1]/div[2]/div[2]/div[5]/div[2]/div/div[1]/div[1]/div[2]');
