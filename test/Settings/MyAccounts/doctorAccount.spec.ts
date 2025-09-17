@@ -1,14 +1,15 @@
 import { test, expect } from "@playwright/test";
-import { fillupAllInfoMale, uploadProfilePhoto, genderMale, Birthday, CalendarDay } from "../../../QMSFunction/QmeupMyAccount";
+import { fillupAllInfoMale, uploadProfilePhoto, genderMale, Birthday, CalendarDay,selectDate } from "../../../QMSFunction/QmeupMyAccount";
 import { PageManager } from "../../../PageObjectModels/MainPageObjectModels";
 import { landingPage, pageLogins, doctorsAccount } from "../../../QMSFunction/QmeupLogin";
 import { datePickerss, personalInfoMale } from "../../../utils/exportDatas";
-import { birthDayss2 } from "../../../utils/exportDatas";
+import { birthDayss2,  } from "../../../utils/exportDatas";
 import { getConfig2 } from "../../../utils/config";
 import { AccountLogin } from "../../../utils/datavariables";
 
 test ('Fill up all Doctor Account', async ({page})=>{
     const pageManager = new PageManager(page);
+    const bdaymodule = pageManager.qmeupmyAccountBirthday();
     const allmodule = pageManager.qmeupFunction();
     await landingPage(page);
     await pageLogins(page);
@@ -22,4 +23,6 @@ test ('Fill up all Doctor Account', async ({page})=>{
     await genderMale(page);
     //await Birthday(page, datePickerss);
     await CalendarDay(page, birthDayss2);
-})
+    await expect(bdaymodule.dateview).toBeVisible();
+    await selectDate(page, birthDayss2);
+});

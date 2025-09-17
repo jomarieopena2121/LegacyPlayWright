@@ -48,8 +48,8 @@ export type datePickers = {
     licenseExpire: string
 }
 export type birthDays2 = {
-    month: string,
-    day: string,
-    year: string
+    month: number,
+    day: number,
+    year: number
 
 }

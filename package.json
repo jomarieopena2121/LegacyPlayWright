@@ -1,7 +1,7 @@
 {
   "devDependencies": {
     "@playwright/test": "^1.55.0",
-    "@types/node": "^24.3.0",
+    "@types/node": "^24.5.1",
     "allure-playwright": "^3.3.3",
     "ts-node": "^10.9.2",
     "typescript": "^5.9.2"
@@ -9,5 +9,10 @@
   "scripts": {
     "myAccounts": "npx playwright test --grep Settings --ui",
     "kiosk": "npx playwright test --grep legacy --ui"
+  },
+  "dependencies": {
+    "@types/moment": "^2.11.29",
+    "dotenv": "^17.2.2",
+    "moment": "^2.30.1"
   }
 }

@@ -3,7 +3,7 @@ import { BasedURL } from '../QMSClass/QmeupLogin';
 import { KioskQR } from '../QMSClass/QmeupKiosk';
 import { LoginAccount } from '../QMSClass/QmeupSignin';
 import { settingsClass } from '../QMSClass/QmeupKioskCreation';
-import { birthdDay, femaleGender, maleGender, myAccounts } from '../QMSClass/QmeupMyAccount';
+import { birthdDay, femaleGender, maleGender, myAccounts, selectDate } from '../QMSClass/QmeupMyAccount';
 
 export class PageManager {
     public page: Page;
@@ -15,6 +15,7 @@ export class PageManager {
     private qmsmyAccountMaleGender: maleGender
     private qmsMyAccountFemaleGender: femaleGender
     private qmsMyAccountBday: birthdDay
+    private qmsSelectDate: selectDate
     constructor (page: Page){
         this.page = page;
         this.BasedURL = new BasedURL(page);
@@ -25,6 +26,7 @@ export class PageManager {
         this.qmsmyAccountMaleGender = new maleGender(page)
         this.qmsMyAccountFemaleGender = new femaleGender(page)
         this.qmsMyAccountBday = new birthdDay(page);
+        this.qmsSelectDate = new selectDate(page);
     }
     // qmeupLogin(){
     //     return this.BasedURL;
@@ -49,5 +51,8 @@ export class PageManager {
     }
     qmeupmyAccountBirthday(){
         return this.qmsMyAccountBday
+    }
+    qmeupmyAccountSelectDate(){
+        return this.qmsSelectDate
     }
 }

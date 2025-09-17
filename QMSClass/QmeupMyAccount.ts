@@ -113,6 +113,18 @@ export class birthdDay{
         this.dateview = page.locator('//html/body/div[5]/div/div[1]/div/div/div/div/div[2]/div[1]');
     }
 }
+export class selectDate {
+    page: Page
+    forDate: Locator
+    prevDate: Locator
+    mmYY: Locator
+    constructor (page: any){
+        this.page = page;
+        this.prevDate = page.locator('//html/body/div[5]/div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/button[1]');
+        this.forDate = page.locator('//html/body/div[5]/div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/button[2]');
+        this.mmYY = page.locator('//html/body/div[5]/div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/div/div/div');
+    }
+}
 export class csCoHabit {
     page: Page
     getCivilStatus: Locator

@@ -8,7 +8,7 @@ import { birthDayss2 } from "../../../utils/exportDatas";
 test('Fill up all Admin Account', async ({page})=> {
     const pageManager = new PageManager(page);
     const allmodule = pageManager.qmeupFunction();
-    
+    const bdaymodule = pageManager.qmeupmyAccountBirthday();
     await landingPage(page);
     await pageLogins(page);
     await userAccountAdmin(page);
@@ -20,5 +20,6 @@ test('Fill up all Admin Account', async ({page})=> {
     await genderMale(page);
     await Birthday(page, datePickerss);
     await CalendarDay(page, birthDayss2);
+     await expect(bdaymodule.dateview).toBeVisible();
 })
 
