@@ -1,9 +1,11 @@
 
+import { doctorInformation } from "../QMSClass/QmeupMyAccount";
 import { personalInfooMale, 
     personalInfooFemale, 
     datePickers, 
     changePass,
-    birthDays2 } from "./data";
+    birthDays2,
+docInform } from "./data";
 const dataset = JSON.parse(JSON.stringify(require("../utils/testData.json")));
 export const personalInfoMale: personalInfooMale  = {
     prefix: dataset.maleInformations.prefix,
@@ -16,6 +18,7 @@ export const personalInfoMale: personalInfooMale  = {
     nickname: dataset.maleInformations.nickName,
     mobileNo: dataset.maleInformations.mobileNo,
     officePhone: dataset.maleInformations.officePhone,
+    extension: dataset.maleInformations.extension,
     faxNo: dataset.maleInformations.faxNo
 }
 
@@ -29,6 +32,7 @@ export const personalInfoFemale: personalInfooFemale  = {
     nickname: dataset.femaleInformations.nickName,
     mobileNo: dataset.femaleInformations.mobileNo,
     officePhone: dataset.femaleInformations.officePhone,
+    extension: dataset.femaleInformations.extension,
     faxNo: dataset.femaleInformations.faxNo
 }
 export const changePassword: changePass ={
@@ -44,4 +48,9 @@ export const birthDayss2: birthDays2 = {
     month: dataset.birthDays.month,
     day: dataset.birthDays.day,
     year: dataset.birthDays.year
+}
+export const docInfo: docInform = {
+    licenseNo: dataset.doctorInformation.licenseNo,
+    licexpire: dataset.doctorInformation.licexpire,
+    specialization: dataset.doctorInformation.specialization
 }

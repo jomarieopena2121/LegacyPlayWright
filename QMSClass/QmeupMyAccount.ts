@@ -1,4 +1,5 @@
 import { Locator, Page} from '@playwright/test'
+import { LocaleSpecification } from 'moment'
 
 export class myAccounts {
     page: Page
@@ -99,6 +100,7 @@ export class birthdDay{
     countdivyear: Locator
     scrollviewyear: Locator
     dateview: Locator
+   
     constructor (page:any){
         this.page = page
         this.bdayInput = page.getByLabel('Birthday (MM/DD/YYYY)');
@@ -111,18 +113,23 @@ export class birthdDay{
         this.countdivyear = page.locator('//html/body/div[5]/div/div[1]/div/div/div/div/div[2]/div[1]/div/div');
         this.scrollviewyear = page.locator('//html/body/div[5]/div/div[1]/div/div/div/div/div[2]/div[1]');
         this.dateview = page.locator('//html/body/div[5]/div/div[1]/div/div/div/div/div[2]/div[1]');
+       
     }
 }
 export class selectDate {
     page: Page
-    forDate: Locator
+    forwardDate: Locator
     prevDate: Locator
     mmYY: Locator
+    btncnbday: Locator
+    btnokbay: Locator
     constructor (page: any){
         this.page = page;
         this.prevDate = page.locator('//html/body/div[5]/div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/button[1]');
-        this.forDate = page.locator('//html/body/div[5]/div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/button[2]');
+        this.forwardDate = page.locator('//html/body/div[5]/div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/button[2]');
         this.mmYY = page.locator('//html/body/div[5]/div/div[1]/div/div/div/div/div[2]/div[1]/div[1]/div/div/div');
+        this.btncnbday = page.getByRole('button', {name: 'CANCEL'});
+        this.btnokbay = page.getByRole('button', { name: 'OK'});
     }
 }
 export class csCoHabit {
@@ -311,17 +318,46 @@ export class changeMyPass {
 
 export class doctorInformation {
     page: Page
-
+    ddlinkdocinfo: Locator
+    docinfobody: Locator
+    inputLicense: Locator
+    expidateLicense: Locator
+    specialization: Locator
     constructor(page:any){
         this.page = page;
+        this.ddlinkdocinfo = page.locator('[id*="#doctor-information"]');
+        this.inputLicense = page.getByLabel('License');
+        this.expidateLicense = page.getByLabel('License Expiration (MM/DD/YYYY)');
+        this.specialization = page.getByLabel('Specialization');
+        //Inspect -> Right click the element -> Click Copy Element -> Find Full XPATH
+        //If the Element has no any attributes full xpath is used.
+        this.docinfobody = page.locator('//html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div/div/div[1]/div[3]/div[1]/div[2]');
     }
 }
 
 export class doctorSetting {
     page: Page
-    
-    constructor(page:any){
+    docsettings: Locator
+    docsetbody: Locator
+    dfroom: Locator
+    dfroombtn: Locator
+    dfdropdown: Locator
+    dfrlprsnt: Locator
+    dfrlmenu: Locator
+    clickspan: Locator
+    constructor(page:any) {
         this.page = page;
+        this.docsettings = page.locator('[id*="#doctor-setting"]');
+        this.dfroom = page.locator('[id*="#undefined-undefined-DefaultRoom-60539"]');
+        this.clickspan = page.getByRole("menuitem");
+        //Inspect -> Right click the element -> Click Copy Element -> Find Full XPATH
+        //If the Element has no any attributes full xpath is used.
+        this.dfroombtn = page.locator('//html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div/div/div[1]/div[3]/div[2]/div[2]/div/div[1]/div[1]/div[1]/button');
+        this.docsetbody = page.locator('//html/body/div[1]/div/div[2]/div/div[2]/div/div[2]/div/div/div[1]/div[3]/div[2]/div[2]');
+        this.dfdropdown = page.locator('//html/body/div[11]/div');
+        this.dfrlprsnt = page.locator('//html/body/div[11]/div/div');
+        this.dfrlmenu = page.locator('//html/body/div[11]/div/div/div');
+        
     }
 }
 

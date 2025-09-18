@@ -1,9 +1,13 @@
 import { expect, Page,} from '@playwright/test';
 import { PageManager } from '../PageObjectModels/MainPageObjectModels';
-import { personalInfooMale, personalInfooFemale, datePickers,birthDays2 } from '../utils/data';
+import { personalInfooMale, personalInfooFemale, datePickers,birthDays2,
+    docInform
+
+
+ } from '../utils/data';
 import moment from "moment"
 import * as path from 'path'
-import { loadEnvFile } from 'process';
+
 
 export async function uploadProfilePhoto(page:Page): Promise<PageManager> {
     const pageManager = new PageManager(page);
@@ -91,7 +95,6 @@ export async function Birthday(page: Page, { birthDays }: datePickers){
 
     await expect(qmeupMyAccounts.bdayInput).toBeVisible();
     await qmeupMyAccounts.bdayInput.fill(birthDays);
-
     return pageManager;
 }
 export async function CalendarDay(page: Page, { year }: birthDays2){
@@ -122,6 +125,7 @@ export async function CalendarDay(page: Page, { year }: birthDays2){
 }
 export async function selectDate(page:Page,{year, month}: birthDays2) {
     const pageManager = new PageManager(page);
+     const qmeupMyAccounts2 = pageManager.qmeupmyAccountBirthday();
     const qmeupMyAccounts = pageManager.qmeupmyAccountSelectDate();
 
     const targetDate = moment({ year, month: month - 1 });
@@ -139,18 +143,81 @@ export async function selectDate(page:Page,{year, month}: birthDays2) {
             // Go backward
             await expect(qmeupMyAccounts.prevDate).toBeVisible();
             await qmeupMyAccounts.prevDate.click();
+            await expect(qmeupMyAccounts.btnokbay).toBeVisible();
         } else {
             // Go forward
             await expect(qmeupMyAccounts.forwardDate).toBeVisible();
             await qmeupMyAccounts.forwardDate.click();
+            await expect(qmeupMyAccounts.btnokbay).toBeVisible();
+            
         }
         labelText = (await qmeupMyAccounts.mmYY.textContent())?.trim() ?? "";
         currentDate = moment(labelText, "MMMM YYYY");
+        
     }
-
 
     console.log("Selected month:", targetLabel);
     console.log("Target is before today?", targetDate.isBefore(moment(), "month"));
+    await qmeupMyAccounts.btnokbay.click();
+    await qmeupMyAccounts2.bdayButtonCalendar.isHidden();
    
+    return pageManager;
+}
+
+export async function otherInformation(page: Page, {position,nickname,mobileNo,
+    extension, 
+    officePhone, 
+    faxNo}: 
+    personalInfooMale) {
+    const pageManager = new PageManager(page);
+    const qmeupMyAccounts = pageManager.qmeupmyAccount();
+
+    await qmeupMyAccounts.acposition.fill('');
+    await qmeupMyAccounts.acemail.isDisabled();
+    await qmeupMyAccounts.acnicnkname.fill('');
+    await qmeupMyAccounts.acmobile.fill('');
+    await qmeupMyAccounts.acofficephone.fill('');
+    await qmeupMyAccounts.acextension.fill('');
+    await qmeupMyAccounts.acFaxNo.fill('');
+
+    return pageManager;
+}
+export async function changeMyAccountPassword(page:Page) {
+    const pageManager = new PageManager(page);
+    const qmeupmyAccount = pageManager.qmeupmyAccountChangePass();
+
+    await expect(qmeupmyAccount.changepassclicker).toBeVisible();
+    await qmeupmyAccount.changepassclicker.click();
+}
+export async function doctorInformation(page:Page, {licenseNo, licexpire, specialization}: docInform) {
+    const pageManager = new PageManager(page);
+    const qmeupmyAccount = pageManager.qmeupmyAccountDocInfo();
+
+    await expect(qmeupmyAccount.ddlinkdocinfo).toBeVisible();
+    await qmeupmyAccount.ddlinkdocinfo.click();
+    await expect(qmeupmyAccount.docinfobody).toBeVisible();
+
+    return pageManager;
+}
+export async function doctorSettings(page: Page) {
+    const pageManager = new PageManager(page);
+    const qmeupAccount = pageManager.qmeupmyAccountDocSettings();
+
+    await expect(qmeupAccount.docsettings).toBeVisible();
+    await qmeupAccount.docsettings.click();
+    await expect(qmeupAccount.docsetbody).toBeVisible();
+    await qmeupAccount.dfroom.isVisible();
+    await expect(qmeupAccount.dfroombtn).toBeVisible();
+    await qmeupAccount.dfroombtn.click();
+    await qmeupAccount.dfroombtn.scrollIntoViewIfNeeded;
+    await expect(qmeupAccount.dfdropdown).toBeVisible();
+    
+    const rows = await qmeupAccount.dfrlmenu;
+    const rowCount = await rows.count();
+    for(let i = 0; i < rowCount; i++){
+        const row = rows.nth(i);
+        const roomname = await row.innerText();
+        console.log("What is the rooms here", `${roomname}`);
+    }
     return pageManager;
 }

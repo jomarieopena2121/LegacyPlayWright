@@ -10,7 +10,7 @@
         "nickName": "Lou",
         "mobileNo": "091313223123",
         "officePhone": "",
-        "Extension": "",
+        "extension": "",
         "faxNo": ""
     },
 
@@ -24,7 +24,7 @@
         "nickName": "Lou",
         "mobileNo": "091313223123",
         "officePhone": "",
-        "Extension": "",
+        "extension": "",
         "faxNo": ""
     },
     "datePicks": {
@@ -45,6 +45,11 @@
         "month": 12,
         "day": 22,
         "year": 2029
+    },
+    "doctorInformation":{
+        "licenseNo": "12312312",
+        "licexpire": "08/22/2030",
+        "specialization": "Neurologist"
     }
 }
 

@@ -3,7 +3,9 @@ import { BasedURL } from '../QMSClass/QmeupLogin';
 import { KioskQR } from '../QMSClass/QmeupKiosk';
 import { LoginAccount } from '../QMSClass/QmeupSignin';
 import { settingsClass } from '../QMSClass/QmeupKioskCreation';
-import { birthdDay, femaleGender, maleGender, myAccounts, selectDate } from '../QMSClass/QmeupMyAccount';
+import { birthdDay, changeMyPass, doctorInformation, doctorSetting, femaleGender, maleGender, myAccounts, selectDate } from '../QMSClass/QmeupMyAccount';
+import { changePass } from '../utils/data';
+import { doctorSettings } from '../QMSFunction/QmeupMyAccount';
 
 export class PageManager {
     public page: Page;
@@ -16,6 +18,9 @@ export class PageManager {
     private qmsMyAccountFemaleGender: femaleGender
     private qmsMyAccountBday: birthdDay
     private qmsSelectDate: selectDate
+    private qmsChangePass: changeMyPass
+    private qmsDoctorInfo: doctorInformation
+    private qmsDoctorSettings: doctorSetting
     constructor (page: Page){
         this.page = page;
         this.BasedURL = new BasedURL(page);
@@ -27,6 +32,9 @@ export class PageManager {
         this.qmsMyAccountFemaleGender = new femaleGender(page)
         this.qmsMyAccountBday = new birthdDay(page);
         this.qmsSelectDate = new selectDate(page);
+        this.qmsChangePass = new changeMyPass(page);
+        this.qmsDoctorInfo = new doctorInformation(page);
+        this.qmsDoctorSettings = new doctorSetting(page);
     }
     // qmeupLogin(){
     //     return this.BasedURL;
@@ -47,12 +55,21 @@ export class PageManager {
         return this.qmsmyAccountMaleGender;
     }
     qmeupmyAccountFemaleGender(){
-        return this.qmsMyAccountFemaleGender
+        return this.qmsMyAccountFemaleGender;
     }
     qmeupmyAccountBirthday(){
-        return this.qmsMyAccountBday
+        return this.qmsMyAccountBday;
     }
     qmeupmyAccountSelectDate(){
-        return this.qmsSelectDate
+        return this.qmsSelectDate;
+    }
+    qmeupmyAccountChangePass(){
+        return this.qmsChangePass;
+    }
+    qmeupmyAccountDocInfo(){
+        return this.qmsDoctorInfo;
+    }
+    qmeupmyAccountDocSettings(){
+        return this.qmsDoctorSettings;
     }
 }

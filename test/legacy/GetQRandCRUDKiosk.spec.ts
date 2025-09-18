@@ -8,12 +8,13 @@ import { addKioskAllGroup,
     cancelDeleteKios, 
     ProceedDeleteKiosk 
 } from '../../QMSFunction/QmeupCrudKiosk';
+import { AccountLogin } from '../../utils/datavariables';
 
 test('Login Get Kiosk using Admin Account', async ({page})=>{
 
     await landingPage(page);
     await pageLogins(page);
-    await userAccountAdmin(page);
+    await userAccountAdmin(page, AccountLogin);
     await openNewKioskWindow(page);
         
 }); 
@@ -31,7 +32,7 @@ test.describe('CRUD Kiosk', async ()=>{
 
         await landingPage(page);
         await pageLogins(page);
-        await userAccountAdmin(page);
+        await userAccountAdmin(page, AccountLogin);
         await allmodule.dashboardlk.click();
         await allmodule.dashboardiv.textContent();
         await allmodule.settings.click();
@@ -42,14 +43,14 @@ test.describe('CRUD Kiosk', async ()=>{
     test('Updating of Kiosk', async({page})=>{
         await landingPage(page);
         await pageLogins(page);
-        await userAccountAdmin(page);
+        await userAccountAdmin(page, AccountLogin);
         await updateKiosk(page);
     });
     test('Cancel Removing of Kiosk', async ({page})=> {
 
         await landingPage(page);
         await pageLogins(page);
-        await userAccountAdmin(page);
+        await userAccountAdmin(page, AccountLogin);
         await cancelDeleteKios(page);
 
     });
@@ -57,7 +58,7 @@ test.describe('CRUD Kiosk', async ()=>{
 
         await landingPage(page);
         await pageLogins(page);
-        await userAccountAdmin(page);
+        await userAccountAdmin(page, AccountLogin);
         await ProceedDeleteKiosk(page);
         
     });

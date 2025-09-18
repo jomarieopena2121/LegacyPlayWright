@@ -23,6 +23,7 @@ export type personalInfooMale = {
     nickname: string;
     mobileNo: string;
     officePhone: string;
+    extension: string;
     faxNo: string;
 }
 
@@ -36,6 +37,7 @@ export type personalInfooFemale = {
     nickname: string;
     mobileNo: string;
     officePhone: string;
+    extension: string;
     faxNo: string;
 }
 export type changePass = {
@@ -52,4 +54,9 @@ export type birthDays2 = {
     day: number,
     year: number
 
+}
+export type docInform = {
+    licenseNo: string
+    licexpire: string
+    specialization: string
 }

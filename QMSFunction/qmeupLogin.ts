@@ -15,14 +15,14 @@ export async function pageLogins(page: Page): Promise<BasedURL>{
 
     return qmeupLoginPage;
 }
-export async function userAccountAdmin(page:Page): Promise<PageManager> {
+export async function userAccountAdmin(page:Page,{ qmeupadmin, qmeuppass}: AppConfigs): Promise<PageManager> {
     const pageManager = new PageManager(page);
 
     const signIn = pageManager.qmeupLogin2();
-    await signIn.email1.fill(AccountLogin.qmeupadmin);
-    console.log(AccountLogin.qmeupadmin)
-    await signIn.pass.fill(AccountLogin.qmeuppass);
-    console.log(AccountLogin.qmeuppass)
+    await signIn.email1.fill(qmeupadmin);
+    console.log(qmeupadmin)
+    await signIn.pass.fill(qmeuppass);
+    console.log(qmeuppass);
     await signIn.button1.click();
     await signIn.page.waitForLoadState('load');
 
