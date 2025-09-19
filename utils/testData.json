@@ -50,6 +50,14 @@
         "licenseNo": "12312312",
         "licexpire": "08/22/2030",
         "specialization": "Neurologist"
+    },
+    "doctorsRoom":{
+        "roomName": "ROOM 101",
+        "remarks": "Pedia Doctor"
+    },
+     "updatedoctorsRM":{
+        "RoomName": "ROOM 1011",
+        "Remarks2": "Pediatrics Doctor"
     }
 }
 

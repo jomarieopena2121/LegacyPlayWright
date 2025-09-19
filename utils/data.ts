@@ -60,3 +60,11 @@ export type docInform = {
     licexpire: string
     specialization: string
 }
+export type docRoom = {
+    roomName: string
+    remarks: string
+}
+export type updatedocRoom2 = {
+    RoomName: string
+    Remarks2: string
+} 

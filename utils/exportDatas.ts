@@ -1,11 +1,15 @@
 
+import { doctorsRoom } from "../QMSClass/QmeupDoctorsModule";
 import { doctorInformation } from "../QMSClass/QmeupMyAccount";
 import { personalInfooMale, 
     personalInfooFemale, 
     datePickers, 
     changePass,
     birthDays2,
-docInform } from "./data";
+    docInform,
+    docRoom,
+    updatedocRoom2
+} from "./data";
 const dataset = JSON.parse(JSON.stringify(require("../utils/testData.json")));
 export const personalInfoMale: personalInfooMale  = {
     prefix: dataset.maleInformations.prefix,
@@ -53,4 +57,12 @@ export const docInfo: docInform = {
     licenseNo: dataset.doctorInformation.licenseNo,
     licexpire: dataset.doctorInformation.licexpire,
     specialization: dataset.doctorInformation.specialization
+}
+export const docRooms: docRoom = {
+    roomName: dataset.doctorsRoom.roomName,
+    remarks: dataset.doctorsRoom.remarks
+}
+export const updocRoom : updatedocRoom2 = {
+    RoomName: dataset.updatedoctorsRM.RoomName,
+    Remarks2: dataset.updatedoctorsRM.Remarks2
 }

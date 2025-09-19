@@ -6,7 +6,6 @@ export async function addKioskAllGroup(page : Page): Promise<PageManager> {
     const pageManager = new PageManager(page);
 
     const addKioskAll = pageManager.qmeupFunction();
-    await expect(addKioskAll.buttonaddkiosk).toBeVisible();
     await addKioskAll.buttonaddkiosk.click();
     await expect(addKioskAll.addkiosk).toBeVisible();
     await addKioskAll.enterKioskN.fill('IPD REG');
@@ -33,11 +32,7 @@ export async function addKioskAllGwithGreet(page: Page): Promise<PageManager>{
 export async function updateKiosk(page: Page): Promise<PageManager> {
     const pageManager = new PageManager(page);
     const allmodule = pageManager.qmeupFunction();
-        await allmodule.dashboardlk.click();
-        await allmodule.dashboardiv.textContent();
-        await allmodule.settings.click();
-        await allmodule.settingsSN.click();
-        await allmodule.kioskdiv.first().waitFor();
+    
         const tbody = await allmodule.kioskName;
         const rows = tbody;  
         const rowCount = await rows.count();
@@ -64,9 +59,6 @@ export async function updateKiosk(page: Page): Promise<PageManager> {
             await allmodule.updatekiosk.click();
             await expect(allmodule.updatekiosk).toBeHidden();
             await allmodule.enterKioskN.fill('');
-        // if(allmodule.enterKioskN === null){
-        //console.log("This field is required Field",`${allmodule.enterKioskN}`);
-                // }
             await expect(allmodule.updatebutton).toBeVisible();
             await allmodule.updatebutton.click();
         //  console.log(`Found button in row ${i} with Name of Kiosk = ${firstCellText}`);
@@ -75,14 +67,10 @@ export async function updateKiosk(page: Page): Promise<PageManager> {
     } 
     return pageManager;
 }
-export async function cancelDeleteKios(page: Page): Promise<PageManager> {
+export async function cancelDeleteKiosk(page: Page): Promise<PageManager> {
     const pageManager = new PageManager(page);
     const allmodule = pageManager.qmeupFunction();
-        await allmodule.dashboardlk.click();
-        await allmodule.dashboardiv.textContent();
-        await allmodule.settings.click();
-        await allmodule.settingsSN.click();
-        await allmodule.kioskdiv.first().waitFor();
+    
         const tbody = await allmodule.kioskName;
         const rows = tbody;  
         const rowCount = await rows.count();
@@ -122,11 +110,6 @@ export async function ProceedDeleteKiosk(page: Page): Promise<PageManager> {
     const pageManager = new PageManager(page);
     const allmodule = pageManager.qmeupFunction();
         
-        await allmodule.dashboardlk.click();
-        await allmodule.dashboardiv.textContent();
-        await allmodule.settings.click();
-        await allmodule.settingsSN.click();
-        await allmodule.kioskdiv.first().waitFor();
         const tbody = await allmodule.kioskName;
         const rows = tbody;  
         const rowCount = await rows.count();
@@ -163,31 +146,10 @@ export async function ProceedDeleteKiosk(page: Page): Promise<PageManager> {
 }
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 export async function openNewKioskWindow(page: Page): Promise<PageManager> {
-     const pageManager = new PageManager(page);
+    const pageManager = new PageManager(page);
 
     const allmodule = pageManager.qmeupFunction();
-
-    await allmodule.dashboardlk.click();
-        await allmodule.dashboardiv.textContent();
-        await allmodule.settings.click();
-        await allmodule.settingsSN.click();
-        await allmodule.kioskdiv.first().waitFor();
         const tbody = await allmodule.kioskName;
         const rows = tbody;  
         const rowCount = await rows.count();

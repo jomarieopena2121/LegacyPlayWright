@@ -12,18 +12,14 @@ import { datePickerss, personalInfoMale, docInfo } from "../../../utils/exportDa
 import { birthDayss2,  } from "../../../utils/exportDatas";
 import { getConfig2 } from "../../../utils/config";
 import { AccountLogin } from "../../../utils/datavariables";
-
+import { dashBoard, Settings, dashBoardDoctor } from "../../../QMSFunction/QmeupNavigation";
 test ('Fill up all Doctor Account', async ({page})=>{
     const pageManager = new PageManager(page);
-    const bdaymodule = pageManager.qmeupmyAccountBirthday();
     const allmodule = pageManager.qmeupFunction();
     await landingPage(page);
     await pageLogins(page);
     await doctorsAccount(page, AccountLogin);
-    await expect(allmodule.dashboardlk).toBeVisible();
-    await allmodule.dashboardlk.click();
-    await allmodule.dbnorole.allTextContents();
-    await allmodule.settings.click();
+    await Settings(page);
     await uploadProfilePhoto(page);
     await fillupAllInfoMale(page, personalInfoMale);
     await genderMale(page);

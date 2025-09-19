@@ -1,9 +1,9 @@
 import { expect, Page,} from '@playwright/test';
 import { PageManager } from '../PageObjectModels/MainPageObjectModels';
-import { personalInfooMale, personalInfooFemale, datePickers,birthDays2,
+import { personalInfooMale, personalInfooFemale, 
+    datePickers,
+    birthDays2,
     docInform
-
-
  } from '../utils/data';
 import moment from "moment"
 import * as path from 'path'
@@ -13,7 +13,7 @@ export async function uploadProfilePhoto(page:Page): Promise<PageManager> {
     const pageManager = new PageManager(page);
     
     const qmeupMyAccounts = pageManager.qmeupmyAccount()
-    const filedirectory = path.resolve('C:\\Users\\Bizbox - PM\\OneDrive - BizBox Inc\\Documents\\luffy-wallpaper.jpg')
+    const filedirectory = path.resolve('C:\\Users\\Bizbox - PM\\OneDrive - BizBox Inc\\Documents\\luffy-wallpaper.jpg');
     await expect(qmeupMyAccounts.basicinformation).toBeVisible();
     await expect(qmeupMyAccounts.labelchangephoto).toBeVisible();
     await qmeupMyAccounts.labelchangephoto.click();
@@ -216,8 +216,15 @@ export async function doctorSettings(page: Page) {
     const rowCount = await rows.count();
     for(let i = 0; i < rowCount; i++){
         const row = rows.nth(i);
-        const roomname = await row.innerText();
+        const roomname = await row.locator(qmeupAccount.clickspan);
         console.log("What is the rooms here", `${roomname}`);
+        const cellText = await roomname.innerText();
+        if(cellText.includes('ROOM 101')){
+            const span1 = roomname.nth(i);
+            const span2 = span1
+            const span3 = span2.locator(qmeupAccount.dfrlmenu);
+            await expect(span3).toBeVisible();
+        }
     }
     return pageManager;
 }

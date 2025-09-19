@@ -5,6 +5,7 @@ import { PageManager } from "../../../PageObjectModels/MainPageObjectModels";
 import { datePickerss, personalInfoMale} from "../../../utils/exportDatas";
 import { birthDayss2 } from "../../../utils/exportDatas";
 import { AccountLogin } from "../../../utils/datavariables";
+import { dashBoard, Settings } from "../../../QMSFunction/QmeupNavigation";
 
 
 test('Fill up all Admin Account', async ({page})=> {
@@ -14,14 +15,12 @@ test('Fill up all Admin Account', async ({page})=> {
     await landingPage(page);
     await pageLogins(page);
     await userAccountAdmin(page,AccountLogin);
-    await allmodule.dashboardlk.click();
-    await expect(allmodule.dashboardiv).toBeVisible();
-    await allmodule.settings.click();
+    await Settings(page);
     await uploadProfilePhoto(page);
     await fillupAllInfoMale(page, personalInfoMale);
     await genderMale(page);
     await Birthday(page, datePickerss);
     await CalendarDay(page, birthDayss2);
-     await expect(bdaymodule.dateview).toBeVisible();
+    await expect(bdaymodule.dateview).toBeVisible();
 })
 
