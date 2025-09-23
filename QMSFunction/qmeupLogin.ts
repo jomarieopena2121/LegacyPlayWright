@@ -5,7 +5,7 @@ import { PageManager } from '../PageObjectModels/MainPageObjectModels';
 import { AppConfigs } from '../utils/data';
 
 export async function landingPage(page: Page) {
-     await page.goto(AccountLogin.baseappurl);
+     await page.goto(AccountLogin.qmeupCloud);
 }
 export async function pageLogins(page: Page): Promise<BasedURL>{
 
@@ -39,6 +39,20 @@ export async function doctorsAccount(page: Page, {docaccount, docpassword}: AppC
     console.log(docpassword)
     await signIn.button1.click();
    // await signIn.page.waitForTimeout(30000);
+
+    return pageManager;
+}
+
+export async function cloudUserAccountAdmin(page:Page,{ qmeupCloudAdmin, qmeupCloudPass}: AppConfigs): Promise<PageManager> {
+    const pageManager = new PageManager(page);
+
+    const signIn = pageManager.qmeupLogin2();
+    await signIn.email1.fill(qmeupCloudAdmin);
+    console.log(qmeupCloudAdmin)
+    await signIn.pass.fill(qmeupCloudPass);
+    console.log(qmeupCloudPass);
+    await signIn.button1.click();
+    await signIn.page.waitForLoadState('load');
 
     return pageManager;
 }

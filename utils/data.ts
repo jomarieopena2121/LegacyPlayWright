@@ -5,8 +5,10 @@ export type AppConfigs = {
     qmeuppass: string;
     docaccount: string;
     docpassword: string;
-    qmeupkioskname: string
-    qmeupCloud: string
+    qmeupkioskname: string;
+    qmeupCloud: string;
+    qmeupCloudAdmin: string;
+    qmeupCloudPass: string;
 }
 export type AppConfigs2 = {
     kioskurl: string;

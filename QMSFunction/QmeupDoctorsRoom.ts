@@ -49,7 +49,7 @@ export async function UpdateDoctorsRoom(page:Page, { RoomName, Remarks2 }: updat
     return pageManager;
 }
 
-export async function RemoveDoctorsRoom(page:Page, ) {
+export async function RemoveDoctorsRoom(page:Page) {
     const pageManager = new PageManager(page);
     const dctrRoom =  pageManager.qmeupDMDoctorsRoom();
 

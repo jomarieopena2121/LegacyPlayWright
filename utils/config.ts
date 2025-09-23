@@ -1,4 +1,4 @@
-import * as dotenv from 'dotenv'
+import dotenv from "dotenv"
 import * as path from 'path'
 import { AppConfigs, AppConfigs2 } from './data';
 dotenv.config();
@@ -12,7 +12,10 @@ export function getConfig(): AppConfigs {
         docaccount: process.env.QMEUPDOC || '',
         docpassword: process.env.QMEUPDOCPASS || '',
         qmeupkioskname: process.env.QMEUPKIOSKNAME || '',
-        qmeupCloud: process.env.QMEUPCLOUD || ''
+        qmeupCloud: process.env.QMEUP_CLOUD_URL || '',
+        qmeupCloudAdmin: process.env.QMEUP_CLOUD_USERNAME || '',
+        qmeupCloudPass: process.env.QMEUP_CLOUD_PASS || ''
+
     };
 }
 
