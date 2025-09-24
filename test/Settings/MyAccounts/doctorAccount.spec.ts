@@ -5,9 +5,10 @@ import { fillupAllInfoMale, uploadProfilePhoto, genderMale,
     selectDate, 
     otherInformation, 
     doctorInformation,
-    doctorSettings} from "../../../QMSFunction/QmeupMyAccount";
+    doctorSettings,
+} from "../../../QMSFunction/QmeupMyAccount";
 import { PageManager } from "../../../PageObjectModels/MainPageObjectModels";
-import { landingPage, pageLogins, doctorsAccount } from "../../../QMSFunction/QmeupLogin";
+import { landingPage, pageLogins, doctorsAccount,landingPageCloud } from "../../../QMSFunction/QmeupLogin";
 import { datePickerss, personalInfoMale, docInfo } from "../../../utils/exportDatas";
 import { birthDayss2,  } from "../../../utils/exportDatas";
 import { getConfig2 } from "../../../utils/config";
@@ -16,7 +17,8 @@ import { dashBoard, Settings, dashBoardDoctor } from "../../../QMSFunction/Qmeup
 test ('Fill up all Doctor Account', async ({page})=>{
     const pageManager = new PageManager(page);
     const allmodule = pageManager.qmeupFunction();
-    await landingPage(page);
+   // await landingPage(page);
+    await landingPageCloud(page);
     await pageLogins(page);
     await doctorsAccount(page, AccountLogin);
     await Settings(page);

@@ -1,6 +1,6 @@
 import { test, Page, expect } from '@playwright/test';
 import { PageManager } from '../../../PageObjectModels/MainPageObjectModels';
-import { landingPage, pageLogins, userAccountAdmin } from '../../../QMSFunction/QmeupLogin';
+import { landingPage, pageLogins, userAccountAdmin, landingPageCloud } from '../../../QMSFunction/QmeupLogin';
 import { clickQRCode, getQR  } from '../../../QMSFunction/QmeupGetQRKiosk';
 import { addKioskAllGroup, 
     openNewKioskWindow, 
@@ -12,7 +12,8 @@ import { AccountLogin } from '../../../utils/datavariables';
 import { dashBoard, KioskAdmin, Settings } from '../../../QMSFunction/QmeupNavigation';
 test('Login Get Kiosk using Admin Account', async ({page})=>{
 
-    await landingPage(page);
+    //await landingPage(page);
+    await landingPageCloud(page)
     await pageLogins(page);
     await userAccountAdmin(page, AccountLogin);
     await Settings(page);

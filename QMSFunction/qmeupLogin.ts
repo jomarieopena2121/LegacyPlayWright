@@ -5,7 +5,10 @@ import { PageManager } from '../PageObjectModels/MainPageObjectModels';
 import { AppConfigs } from '../utils/data';
 
 export async function landingPage(page: Page) {
-     await page.goto(AccountLogin.qmeupCloud);
+    await page.goto(AccountLogin.baseappurl);
+}
+export async function landingPageCloud(page:Page) {
+    await page.goto(AccountLogin.qmeupCloud);
 }
 export async function pageLogins(page: Page): Promise<BasedURL>{
 
