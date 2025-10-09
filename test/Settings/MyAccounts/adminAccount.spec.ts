@@ -12,8 +12,8 @@ test('Fill up all Admin Account', async ({page})=> {
     const pageManager = new PageManager(page);
     const allmodule = pageManager.qmeupFunction();
     const bdaymodule = pageManager.qmeupmyAccountBirthday();
-    //await landingPage(page);
-    await landingPageCloud(page);
+    await landingPage(page);
+    //await landingPageCloud(page);
     await pageLogins(page);
     await userAccountAdmin(page,AccountLogin);
     await Settings(page);

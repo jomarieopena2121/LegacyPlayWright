@@ -6,8 +6,8 @@ import { AddDoctorsRoom, UpdateDoctorsRoom, RemoveDoctorsRoom } from '../../../Q
 import { docRooms, updocRoom} from '../../../utils/exportDatas';
 test.describe('Doctors Room CRUD', async ()=>{
     test('Adding Doctors Room', async ({page}) => {
-       // await landingPage(page);
-       await landingPageCloud(page);
+       await landingPage(page);
+       //await landingPageCloud(page);
         await pageLogins(page);
         await userAccountAdmin(page, AccountLogin);
         await Settings(page);
@@ -18,8 +18,8 @@ test.describe('Doctors Room CRUD', async ()=>{
     test('Update Doctors Room', async ({page})=>{
         await landingPage(page);
         await pageLogins(page);
-        //await userAccountAdmin(page, AccountLogin);
-        await cloudUserAccountAdmin(page, AccountLogin);
+        await userAccountAdmin(page, AccountLogin);
+        //await cloudUserAccountAdmin(page, AccountLogin);
         await Settings(page);
         await doctorModule(page);
         await navigateDoctorRoom(page);

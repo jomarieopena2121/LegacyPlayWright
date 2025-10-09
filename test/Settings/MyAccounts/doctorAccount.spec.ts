@@ -17,8 +17,8 @@ import { dashBoard, Settings, dashBoardDoctor } from "../../../QMSFunction/Qmeup
 test ('Fill up all Doctor Account', async ({page})=>{
     const pageManager = new PageManager(page);
     const allmodule = pageManager.qmeupFunction();
-   // await landingPage(page);
-    await landingPageCloud(page);
+    await landingPage(page);
+    //await landingPageCloud(page);
     await pageLogins(page);
     await doctorsAccount(page, AccountLogin);
     await Settings(page);
