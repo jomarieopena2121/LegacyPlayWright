@@ -27,7 +27,7 @@ export async function UpdateDoctorsRoom(page:Page, { RoomName, Remarks2 }: updat
             const row = rows.nth(i);
             const tdCells = row.locator(dctrRoom1);
             const firstCellText = await tdCells.first().innerText();
-            if(firstCellText.includes('ROOM 101')){
+            if(firstCellText.includes(RoomName)){
                 const lastCell = tdCells.last();
                 const dctrRoom2 = lastCell;
                 const dctrbutton = dctrRoom2.locator(dctrRoom3);
