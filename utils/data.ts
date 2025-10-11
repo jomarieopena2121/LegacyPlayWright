@@ -5,8 +5,10 @@ export type AppConfigs = {
     qmeuppass: string;
     docaccount: string;
     docpassword: string;
-    qmeupkioskname: string
-    qmeupCloud: string
+    qmeupkioskname: string;
+    qmeupCloud: string;
+    qmeupCloudAdmin: string;
+    qmeupCloudPass: string;
 }
 export type AppConfigs2 = {
     kioskurl: string;
@@ -23,6 +25,7 @@ export type personalInfooMale = {
     nickname: string;
     mobileNo: string;
     officePhone: string;
+    extension: string;
     faxNo: string;
 }
 
@@ -36,5 +39,34 @@ export type personalInfooFemale = {
     nickname: string;
     mobileNo: string;
     officePhone: string;
+    extension: string;
     faxNo: string;
 }
+export type changePass = {
+    oldPass: string,
+    newPass: string,
+    confirmPass: string
+}
+export type datePickers = {
+    birthDays: string,
+    licenseExpire: string
+}
+export type birthDays2 = {
+    month: number,
+    day: number,
+    year: number
+
+}
+export type docInform = {
+    licenseNo: string
+    licexpire: string
+    specialization: string
+}
+export type docRoom = {
+    roomName: string
+    remarks: string
+}
+export type updatedocRoom2 = {
+    RoomName: string
+    Remarks2: string
+} 

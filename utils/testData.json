@@ -10,7 +10,7 @@
         "nickName": "Lou",
         "mobileNo": "091313223123",
         "officePhone": "",
-        "Extension": "",
+        "extension": "",
         "faxNo": ""
     },
 
@@ -24,8 +24,40 @@
         "nickName": "Lou",
         "mobileNo": "091313223123",
         "officePhone": "",
-        "Extension": "",
+        "extension": "",
         "faxNo": ""
+    },
+    "datePicks": {
+        "birthDays": "08/21/1951",
+        "licenseExpire": "11/21/2029"
+    },
+    "changePassword": {
+        "oldPass": "abcdE1234",
+        "newPass": "abcdE@12345",
+        "confirmPass": "abcdE@12345"
+    },
+    "birthDays": {
+        "month": 8,
+        "day": 31,
+        "year": 2004
+    },
+    "licenseExpiration": {
+        "month": 12,
+        "day": 22,
+        "year": 2029
+    },
+    "doctorInformation":{
+        "licenseNo": "12312312",
+        "licexpire": "08/22/2030",
+        "specialization": "Neurologist"
+    },
+    "doctorsRoom":{
+        "roomName": "ROOM 101",
+        "remarks": "Pedia Doctor"
+    },
+     "updatedoctorsRM":{
+        "RoomName": "ROOM 1011",
+        "Remarks2": "Pediatrics Doctor"
     }
 }
 

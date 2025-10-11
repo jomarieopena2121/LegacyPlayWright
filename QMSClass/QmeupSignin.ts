@@ -6,7 +6,7 @@ export class LoginAccount{
     email1: Locator
     pass: Locator
     button1: Locator
-    constructor (page:Page){
+    constructor (page:any){
         this.page = page;
         this.email1 = page.getByLabel('Username or Email');
         this.pass = page.getByLabel('Password');

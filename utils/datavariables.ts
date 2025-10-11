@@ -1,3 +1,4 @@
+import { QmeupKioskCreation } from "../QMSClass/QmeupKioskCreation";
 import { getConfig, getConfig2 } from "./config";
 import { AppConfigs, AppConfigs2 } from "./data";
 
@@ -10,7 +11,9 @@ export const AccountLogin : AppConfigs = {
     docaccount: config.docaccount,
     docpassword: config.docpassword,
     qmeupkioskname: config.qmeupkioskname,
-    qmeupCloud: config.qmeupCloud
+    qmeupCloud: config.qmeupCloud,
+    qmeupCloudAdmin: config.qmeupCloudAdmin,
+    qmeupCloudPass: config.qmeupCloudPass
 }
 const config2 = getConfig2();
 export const getKiosKURL: AppConfigs2 = {
