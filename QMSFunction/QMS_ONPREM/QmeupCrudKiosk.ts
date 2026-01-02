@@ -1,6 +1,6 @@
 import { expect, Page } from '@playwright/test'
-import { PageManager } from '../PageObjectModels/MainPageObjectModels';
-import { AccountLogin } from '../utils/datavariables';
+import { PageManager } from '../../PageObjectModels/MainPageObjectModels';
+import { AccountLogin } from '../../utils/datavariables';
 
 export async function addKioskAllGroup(page : Page): Promise<PageManager> {
     const pageManager = new PageManager(page);
@@ -29,26 +29,28 @@ export async function addKioskAllGwithGreet(page: Page): Promise<PageManager>{
 
     return pageManager;
 }
-export async function updateKiosk(page: Page): Promise<PageManager> {
+export async function updateKiosk(page: Page) {
     const pageManager = new PageManager(page);
     const allmodule = pageManager.qmeupFunction();
     
+        const kioskbutton0 = allmodule.removekiosk
+        const kioskName2 = allmodule.kioskName2
+       // const paginations = allmodule.pagination;
+
         const tbody = await allmodule.kioskName;
         const rows = tbody;  
         const rowCount = await rows.count();
-        const kioskbutton0 = allmodule.removekiosk
-        const kioskName2 = allmodule.kioskName2
-    
-    for (let i = 0; i < rowCount; i++) {
+         for (let i = 0; i < rowCount; i++) {
             const row = rows.nth(i);
         // all <td> in this row
             const tdCells = row.locator(kioskName2);
         // get the first cell text
             const firstCellText = await tdCells.first().innerText();
         // check if it matches "OPD Registration"
-            if (firstCellText.includes('IPD REG')) {
+            if (firstCellText.includes('Devengers')) {
         // last cell of the row
             const lastCell = tdCells.last();
+            await lastCell.scrollIntoViewIfNeeded();
             const kioskbutton1 = lastCell;
         // button inside last cell 'button[title="Open Kiosk On New Window"]'
             const kioskButton = kioskbutton1.locator(kioskbutton0);
@@ -63,9 +65,10 @@ export async function updateKiosk(page: Page): Promise<PageManager> {
             await allmodule.updatebutton.click();
         //  console.log(`Found button in row ${i} with Name of Kiosk = ${firstCellText}`);
         }
-           
-    } 
+
     return pageManager;
+}
+   
 }
 export async function cancelDeleteKiosk(page: Page): Promise<PageManager> {
     const pageManager = new PageManager(page);
@@ -101,6 +104,7 @@ export async function cancelDeleteKiosk(page: Page): Promise<PageManager> {
             await allmodule.buttoncancel.click();
             // console.log(`Found button in row ${i} with Name of Kiosk = ${firstCellText}`);
         }
+       
            
     } 
     return pageManager;
@@ -148,8 +152,8 @@ export async function ProceedDeleteKiosk(page: Page): Promise<PageManager> {
 
 export async function openNewKioskWindow(page: Page): Promise<PageManager> {
     const pageManager = new PageManager(page);
-
     const allmodule = pageManager.qmeupFunction();
+        
         const tbody = await allmodule.kioskName;
         const rows = tbody;  
         const rowCount = await rows.count();
@@ -177,4 +181,61 @@ export async function openNewKioskWindow(page: Page): Promise<PageManager> {
         }
 
      return pageManager;
+}
+
+export async function samplePagination(page:Page) {
+
+    const pageManager = new PageManager(page);
+    const allmodule = pageManager.qmeupFunction();
+        let names = 'Devengers'
+        const tbody = await allmodule.kioskName;
+        const rows = tbody;  
+        const rowCount = await rows.count();
+        const kioskbutton0 = allmodule.kioskbutton
+        const kioskName2 = allmodule.kioskName2
+        // const paginations1 = allmodule.pagination1;
+        // const pagination2 = allmodule.pagination2.filter({hasText: '1'}).first();
+        // const pagination4 = allmodule.pagination4;
+        const paginations = page.getByRole('navigation', { name: 'Pagination'});
+        let pages = 0;
+       
+while (true){
+    for (let i = 0; i < rowCount; i++) {
+            const row = rows.nth(i);
+            //all <td> in this row
+            const tdCells = row.locator(kioskName2);
+            //get the first cell text
+            const firstCellText = await tdCells.first().innerText();
+            // check if it matches "OPD Registration"
+            if(firstCellText.includes('Devengers')) {
+            // last cell of the row
+            const lastCell = tdCells.last();
+            const kioskbutton1 = lastCell;
+            //button inside last cell 'button[title="Open Kiosk On New Window"]'
+            const kioskButton = kioskbutton1.locator(kioskbutton0);
+            //check visibility
+            //await expect(kioskButton).toBeVisible();
+            await kioskButton.click();
+            await expect(allmodule.removekioskclick).toBeVisible();
+            await allmodule.removekioskclick.click();
+            await expect(allmodule.removekioskclick).toBeHidden();
+            await expect(allmodule.confirmremove).toBeVisible();
+            await expect(allmodule.buttoncancel).toBeVisible();
+            await allmodule.buttoncancel.click();
+            console.log(`Found button in row ${i} with Name of Kiosk = ${firstCellText}`);
+            break;
+        }
+            else if(names ){
+                pages++
+            }
+    }
+    
+        
+    
+    return pageManager;
+}
+        
+
+
+      
 }

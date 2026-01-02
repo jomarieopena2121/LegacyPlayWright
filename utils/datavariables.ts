@@ -1,4 +1,4 @@
-import { QmeupKioskCreation } from "../QMSClass/QmeupKioskCreation";
+import { QmeupKioskCreation } from "../QMSClass/QMS_ONPREM/QmeupKioskCreation";
 import { getConfig, getConfig2 } from "./config";
 import { AppConfigs, AppConfigs2 } from "./data";
 

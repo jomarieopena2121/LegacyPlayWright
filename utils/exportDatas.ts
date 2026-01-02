@@ -1,6 +1,6 @@
 
-import { doctorsRoom } from "../QMSClass/QmeupDoctorsModule";
-import { doctorInformation } from "../QMSClass/QmeupMyAccount";
+import { doctorsRoom } from "../QMSClass/QMS_ONPREM/QmeupDoctorsModule";
+import { doctorInformation } from "../QMSClass/QMS_ONPREM/QmeupMyAccount";
 import { personalInfooMale, 
     personalInfooFemale, 
     datePickers, 

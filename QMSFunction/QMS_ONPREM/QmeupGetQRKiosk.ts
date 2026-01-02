@@ -1,6 +1,6 @@
 import { Page, expect} from '@playwright/test'
-import { getKiosKURL } from '../utils/datavariables';
-import { PageManager } from '../PageObjectModels/MainPageObjectModels';
+import { getKiosKURL } from '../../utils/datavariables';
+import { PageManager } from '../../PageObjectModels/MainPageObjectModels';
 
 export async function getQR(page: Page) {
     await page.goto(getKiosKURL.kioskurl);

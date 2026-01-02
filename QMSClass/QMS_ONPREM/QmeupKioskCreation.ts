@@ -27,6 +27,10 @@ export class QmeupKioskCreation {
         greetings: Locator
         otherservices: Locator
         buttonAddKiosk: Locator
+        pagination1: Locator
+        pagination2: Locator
+        pagination3: Locator
+        pagination4: Locator
     constructor (page: any){
         this.page = page;
         // this.dashboardlk = page.getByRole('link', { name: "Dashboard" });
@@ -53,5 +57,9 @@ export class QmeupKioskCreation {
         this.greetings = page.getByLabel('Greetings');
         this.otherservices = page.getByLabel('Show Other Services');
         this.buttonAddKiosk = page.getByRole('button', { name: 'Add'});
+        this.pagination1 = page.locator('ul');
+        this.pagination2 = page.getByRole('listitem');
+        this.pagination3 = page.locator('button:has(svg path[d*="M15.41"])');
+        this.pagination4 = page.locator('button:has(svg path[d*="M8.59 16.34l4.58-4.59-4.58-4.59L10 5.75l6 6-6 6z"])');
     }
 }

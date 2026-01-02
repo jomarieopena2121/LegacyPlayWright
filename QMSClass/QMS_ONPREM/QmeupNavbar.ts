@@ -19,7 +19,7 @@ export class NavBar {
         this.dashboardlk = page.getByRole('link', { name: "Dashboard" });
         this.dashboardiv = page.locator('div', { hasText: "Patient for Today" } ).first().filter();
         this.dbnorole = page.getByRole('paragraph', { name: "Sorry, you don't have access to this facility dashboard."});
-        this.settings = page.getByRole('link', { name: "Settings" });
+        this.settings = page.getByRole('link', { name: 'Settings' });
         this.settingsSN = page.getByRole('link', { name: "Kiosk" });
         this.basicinformation = page.getByRole('heading', { hasText: 'BASIC INFORMATION' });
         this.kioskdiv = page.getByText("KIOSKS");

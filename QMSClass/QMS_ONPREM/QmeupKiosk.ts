@@ -1,5 +1,5 @@
 import { Locator, Page} from '@playwright/test'
-import { AccountLogin, getKiosKURL } from '../utils/datavariables';
+import { AccountLogin, getKiosKURL } from '../../utils/datavariables';
 
 
 export class KioskQR {

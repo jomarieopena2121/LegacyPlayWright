@@ -1,10 +1,10 @@
 import { expect, Page,} from '@playwright/test';
-import { PageManager } from '../PageObjectModels/MainPageObjectModels';
+import { PageManager } from '../../PageObjectModels/MainPageObjectModels';
 import { personalInfooMale, personalInfooFemale, 
     datePickers,
     birthDays2,
     docInform
- } from '../utils/data';
+ } from '../../utils/data';
 import moment from "moment"
 import * as path from 'path'
 

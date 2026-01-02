@@ -1,8 +1,8 @@
 import { Page, expect } from '@playwright/test'
-import { AccountLogin, getKiosKURL } from '../utils/datavariables';
-import { BasedURL } from '../QMSClass/QmeupLogin';
-import { PageManager } from '../PageObjectModels/MainPageObjectModels';
-import { AppConfigs } from '../utils/data';
+import { AccountLogin, getKiosKURL } from '../../utils/datavariables';
+import { BasedURL } from '../../QMSClass/QMS_ONPREM/QmeupLogin';
+import { PageManager } from '../../PageObjectModels/MainPageObjectModels';
+import { AppConfigs } from '../../utils/data';
 
 export async function landingPage(page: Page) {
     await page.goto(AccountLogin.baseappurl);

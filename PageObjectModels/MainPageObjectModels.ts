@@ -1,13 +1,13 @@
 import { Page } from '@playwright/test'
-import { BasedURL } from '../QMSClass/QmeupLogin';
-import { KioskQR } from '../QMSClass/QmeupKiosk';
-import { LoginAccount } from '../QMSClass/QmeupSignin';
-import { QmeupKioskCreation } from '../QMSClass/QmeupKioskCreation';
-import { birthdDay, changeMyPass, doctorInformation, doctorSetting, femaleGender, maleGender, myAccounts, selectDate } from '../QMSClass/QmeupMyAccount';
+import { BasedURL } from '../QMSClass/QMS_ONPREM/QmeupLogin';
+import { KioskQR } from '../QMSClass/QMS_ONPREM/QmeupKiosk';
+import { LoginAccount } from '../QMSClass/QMS_ONPREM/QmeupSignin';
+import { QmeupKioskCreation } from '../QMSClass/QMS_ONPREM/QmeupKioskCreation';
+import { birthdDay, changeMyPass, doctorInformation, doctorSetting, femaleGender, maleGender, myAccounts, selectDate } from '../QMSClass/QMS_ONPREM/QmeupMyAccount';
 import { changePass } from '../utils/data';
-import { doctorSettings } from '../QMSFunction/QmeupMyAccount';
-import { doctorsRoom } from '../QMSClass/QmeupDoctorsModule';
-import { NavBar } from '../QMSClass/QmeupNavbar';
+import { doctorSettings } from '../QMSFunction/QMS_ONPREM/QmeupMyAccount';
+import { doctorsRoom } from '../QMSClass/QMS_ONPREM/QmeupDoctorsModule';
+import { NavBar } from '../QMSClass/QMS_ONPREM/QmeupNavbar';
 
 export class PageManager {
     public page: Page;

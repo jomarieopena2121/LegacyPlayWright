@@ -1,5 +1,5 @@
 import { Page,expect } from '@playwright/test';
-import { PageManager } from '../PageObjectModels/MainPageObjectModels';
+import { PageManager } from '../../PageObjectModels/MainPageObjectModels';
 
 export async function dashBoard(page:Page) {
     const pageManager = new PageManager(page);
